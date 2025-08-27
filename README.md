@@ -33,3 +33,27 @@ Construção das rotas web sobre as seguintes rotas e categorias:
     * /policy/privacy
     * /faq
     * /contact
+
+## Próximo desafio:
+Adicionar as APIs para cada modelo da aplicação, atribuindo suas respectivas rotas e regras de permissão.
+* **Address** (GET, PUT/PATCH, DELETE e POST; acesso apenas para clientes, apenas seus endereços cadastrados)
+
+* **Collection** (GET; acesso a qualquer usuário - logado ou não)
+* **Collection** (PUT/PATCH, DELETE e POST; acesso apenas ao usuário master)
+
+* **Favorite** (GET, DELETE, POST; acesso apenas para clientes, apenas seus produtos favoritos cadastrados)
+
+* **Image** (GET; acesso a qualquer usuário - logado ou não)
+* **Image** (PUT/PATCH, DELETE e POST; acesso apenas ao usuário master)
+
+* **Order** (GET, PUT/PATCH, POST; acesso apenas para clientes, apenas seus pedidos criados)
+* **Order** (DELETE; acesso apenas ao usuário master)
+
+* **Product** (GET; acesso a qualquer usuário - logado ou não)
+* **Product** (POST, DELETE e PUT/PATCH; acesso apenas ao usuário master)
+
+* **Reviews** (GET; acesso a qualquer usuário - logado ou não)
+* **Reviews** (POST, PUT/PATCH e DELETE; acesso apenas para clientes, apenas suas reviews criadas)
+
+* **Slug** (GET; acesso a qualquer usuário - logado ou não)
+* **Slug** (POST, PUT/PATCH e DELETE; acesso apenas ao usuário master)
