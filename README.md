@@ -12,24 +12,24 @@ O diagrama de entidade relacionamento e diagrama de classes já estão construí
 
 ## Desafio inicial:
 Construção das rotas web sobre as seguintes rotas e categorias:
-    - Produto:
-        - /product
-    - Coleção:
-        - /collection/{name}
-    - Página inicial:
-        - /
-    - Usuário:
-        - /my-account
-        - /my-account/settings
-        - /my-account/orders
-        - /my-account/favorites
-    - Pedidos:
-        -/my-account/orders/{number}
-    - Institucionais:
-        - /about
-        - /policy/devolution
-        - /policy/cookies
-        - /policy/legal
-        - /policy/privacy
-        - /faq
-        - /contact
+* **Produto:**
+    * /product
+* **Coleção:**
+    * /collection/{name}
+* **Página inicial:**
+    * /
+* **Usuário:**
+    * /my-account
+    * /my-account/settings
+    * /my-account/orders
+    * /my-account/favorites
+* **Pedidos:**
+    * /my-account/orders/{number}
+* **Institucionais:**
+    * /about
+    * /policy/devolution
+    * /policy/cookies
+    * /policy/legal
+    * /policy/privacy
+    * /faq
+    * /contact
