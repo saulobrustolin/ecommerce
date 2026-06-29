@@ -31,6 +31,8 @@ public class User implements UserDetails {
     @NonNull private String password;
     @NonNull private Set<Address> address;
     private UserRole role = UserRole.CONSUMER;
+    private Set<Product> favorites;
+
     private Boolean isActive = true;
 
     @CreatedDate
