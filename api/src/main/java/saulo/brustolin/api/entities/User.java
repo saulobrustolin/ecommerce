@@ -3,6 +3,7 @@ package saulo.brustolin.api.entities;
 import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -27,9 +28,9 @@ public class User implements UserDetails {
     @NonNull private String name;
     @NonNull private String email;
     @NonNull private String cpf;
-    private Integer balance = 0;
     @NonNull private String password;
-    private UserRole role = UserRole.USER;
+    @NonNull private Set<Address> address;
+    private UserRole role = UserRole.CONSUMER;
     private Boolean isActive = true;
 
     @CreatedDate
@@ -41,9 +42,9 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.role == UserRole.ADMIN) {
-            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_USER"));
+            return List.of(new SimpleGrantedAuthority("ROLE_ADMIN"), new SimpleGrantedAuthority("ROLE_CONSUMER"));
         }
-        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+        return List.of(new SimpleGrantedAuthority("ROLE_CONSUMER"));
     }
 
     @Override

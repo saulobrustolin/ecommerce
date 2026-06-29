@@ -1,6 +1,7 @@
 package saulo.brustolin.api.services;
 
 import java.io.IOException;
+import java.util.HashSet;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,7 +51,7 @@ public class AuthenticationService {
             throw new ErrorException(HttpStatus.BAD_REQUEST, "As senhas não são iguais");
         }
 
-        var user = new User(dto.name(), dto.email(), dto.cpf(), passwordEncoder.encode(dto.password()));
+        var user = new User(dto.name(), dto.email(), dto.cpf(), passwordEncoder.encode(dto.password()), new HashSet<>());
         userRepository.save(user);
 
         String token = tokenService.generateToken(user.getEmail());
