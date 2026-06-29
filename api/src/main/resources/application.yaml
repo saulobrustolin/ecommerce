@@ -1,3 +1,36 @@
 spring:
   application:
     name: api
+
+server:
+  servlet:
+    context-path: /api/v1
+
+---
+spring:
+  data:
+    mongodb:
+      uri: ${MONGO_URI}
+      database: ${MONGO_DB}
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET}
+      expired: ${JWT_EXPIRED}
+  cors: ${ORIGINS_CORS}
+
+---
+spring:
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USER}
+    password: ${RABBITMQ_PASSWORD}
+    virtual-host: ${RABBITMQ_VIRTUAL_HOST}
+    ssl:
+      enabled: ${RABBITMQ_SSL}
+    listener:
+      simple:
+        concurrency: 3
+        max-concurrency: 10

@@ -1,0 +1,65 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    profiles:
+      - tests
+    env_file: .env
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_logs:/var/log/rabbitmq
+
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    profiles:
+      - tests
+    volumes:
+      - mongo_data:/data/db
+      - ./init-db.js:/docker-entrypoint-initdb.d/init-db.js:ro
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "8080:8080"
+    profiles:
+      - production
+      - tests
+    env_file: .env
+
+  consumer-email:
+    container_name: consumer-email
+    build:
+      context: .
+      dockerfile: consumer-email/Dockerfile
+    env_file: .env
+    profiles:
+      - production
+      - tests
+
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+      - "80:3000"
+    profiles:
+      - production
+      - tests
+    env_file: frontend/.env
+    depends_on:
+      - api
+
+volumes:
+  rabbitmq_data:
+  rabbitmq_logs:
+  mongo_data:
