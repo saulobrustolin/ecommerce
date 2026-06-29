@@ -7,14 +7,14 @@ RUN mvn install -N
 COPY shared/ ./shared/
 RUN mvn clean install -f shared/pom.xml -DskipTests
 
-COPY consumer-email/ ./consumer-email/
-RUN mvn clean package -f consumer-email/pom.xml -DskipTests
+COPY notification-email/ ./notification-email/
+RUN mvn clean package -f notification-email/pom.xml -DskipTests
 
 FROM eclipse-temurin:21-jre-jammy
 WORKDIR /app
 RUN useradd -m spring
 USER spring
 
-COPY --from=build /app/consumer-email/target/consumer-email-4.1.0.jar app.jar
+COPY --from=build /app/notification-email/target/notification-email-4.1.0.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]

@@ -19,6 +19,8 @@ api:
       secret: ${JWT_SECRET}
       expired: ${JWT_EXPIRED}
   cors: ${ORIGINS_CORS}
+  verification:
+    ttl: ${TTL_CODE}
 
 ---
 spring:

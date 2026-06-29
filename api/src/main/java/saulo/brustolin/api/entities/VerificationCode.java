@@ -16,7 +16,7 @@ public class VerificationCode {
     private String id;
     private String code;
 
-    @Indexed(expireAfterSeconds = 0)
+    @Indexed(expireAfter = "${api.verification.ttl:15m}")
     private Instant expiresAt;
 
     public String getUserId() { return id; }
