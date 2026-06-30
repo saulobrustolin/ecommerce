@@ -3,6 +3,8 @@ package saulo.brustolin.api.entities;
 import java.util.Objects;
 import java.util.UUID;
 
+import com.mongodb.lang.NonNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,16 +14,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Address {
     
-    private String id = UUID.randomUUID().toString();
+    private String id = "ADD_" + UUID.randomUUID().toString();
 
-    private String street;
-    private String number;
-    private String neighborhood;
-    private String city;
-    private String uf;
-    private String cep;
-    private String obs;
-    private Boolean defaultAddress;
+    @NonNull private String street;
+    @NonNull private String number;
+    @NonNull private String neighborhood;
+    @NonNull private String city;
+    @NonNull private String uf;
+    @NonNull private String cep;
+    @NonNull private String obs;
+    private Boolean defaultAddress = true;
 
     @Override
     public int hashCode() {

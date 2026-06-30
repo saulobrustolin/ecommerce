@@ -26,7 +26,7 @@ public class Product {
     @NonNull private String category;
     @NonNull private Set<SkuProduct> skus;
     @NonNull private Set<String> tags;
-    @NonNull private Set<String> featured_images;
+    @NonNull private Set<String> featuredImages;
 
     private Boolean isActive = true;
     

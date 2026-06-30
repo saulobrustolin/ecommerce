@@ -1,7 +1,7 @@
 package saulo.brustolin.api.entities;
 
 import java.time.Instant;
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -11,24 +11,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.mongodb.lang.NonNull;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@Document(collection = "Reviews")
-@RequiredArgsConstructor
-public class Review {
-    
+@Document(collection = "Orders")
+public class Order {
+
     @Id
     private String id;
 
-    @NonNull private String user;
-    @NonNull private Double rating;
-    @NonNull private String title;
-    @NonNull private String description;
+    @NonNull private String order;
+    
+    @NonNull private List<OrderItem> items;
+    @NonNull private Status status = Status.CREATED;
+    @NonNull private Integer totalAmount;
+    @NonNull private String userId;
 
-    @NonNull private Set<String> images;
-
-    @NonNull private String orderId;
+    private Address shipping_address;
 
     @CreatedDate
     private Instant createdAt;
