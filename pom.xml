@@ -19,6 +19,7 @@
         <module>api</module>
         <module>shared</module>
         <module>notification-email</module>
+        <module>resource-server</module>
     </modules>
 
 </project>
