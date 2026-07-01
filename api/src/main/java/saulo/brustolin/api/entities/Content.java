@@ -16,7 +16,6 @@ public class Content {
     @Id
     private String id;
 
-    private String userId;
     private String key;
 
     @CreatedDate

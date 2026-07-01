@@ -1,4 +1,4 @@
-package saulo.brustolin.shared.dtos;
+package saulo.brustolin.shared.dtos.events;
 
 public record VerificationCodeEvent(
     String fullName,

@@ -15,7 +15,7 @@ import com.resend.services.emails.model.CreateEmailOptions;
 import lombok.AllArgsConstructor;
 import saulo.brustolin.notification.configurations.RabbitMQConfig;
 import saulo.brustolin.notification.configurations.ResendConfig;
-import saulo.brustolin.shared.dtos.VerificationCodeEvent;
+import saulo.brustolin.shared.dtos.events.VerificationCodeEvent;
 
 @Component
 @AllArgsConstructor

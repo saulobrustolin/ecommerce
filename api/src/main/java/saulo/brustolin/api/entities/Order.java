@@ -27,7 +27,7 @@ public class Order {
     @NonNull private Integer totalAmount;
     @NonNull private String userId;
 
-    private Address shipping_address;
+    private Address shippingAddress;
 
     @CreatedDate
     private Instant createdAt;
