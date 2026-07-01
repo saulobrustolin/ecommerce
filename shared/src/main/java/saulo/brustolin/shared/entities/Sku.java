@@ -1,8 +1,8 @@
-package saulo.brustolin.api.entities;
+package saulo.brustolin.shared.entities;
 
 import java.util.Set;
-import java.util.UUID;
 
+import com.github.f4b6a3.ulid.UlidCreator;
 import com.mongodb.lang.NonNull;
 
 import lombok.Data;
@@ -10,9 +10,9 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class SkuProduct {
+public class Sku {
     
-    private String sku = "SKU_" + UUID.randomUUID().toString();
+    private String id = "sku_" + UlidCreator.getMonotonicUlid().toString().toLowerCase();
     @NonNull private Integer price;
     @NonNull private Integer latestPrice;
     @NonNull private Integer inventory;

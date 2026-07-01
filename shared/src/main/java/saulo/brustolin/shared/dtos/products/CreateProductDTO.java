@@ -1,10 +1,10 @@
-package saulo.brustolin.api.dtos.products;
+package saulo.brustolin.shared.dtos.products;
 
 import java.util.Set;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
-import saulo.brustolin.api.entities.SkuProduct;
+import saulo.brustolin.shared.entities.Sku;
 
 public record CreateProductDTO(
     @NotEmpty(message = "O nome é obrigatório")
@@ -14,5 +14,5 @@ public record CreateProductDTO(
     String description,
     @NotEmpty(message = "A categoria do produto é obrigatória")
     String category,
-    Set<SkuProduct> skus
+    Set<Sku> skus
 ) {}

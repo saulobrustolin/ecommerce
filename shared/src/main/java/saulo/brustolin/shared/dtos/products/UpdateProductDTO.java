@@ -1,9 +1,9 @@
-package saulo.brustolin.api.dtos.products;
+package saulo.brustolin.shared.dtos.products;
 
 import java.util.Set;
 
 import jakarta.validation.constraints.Size;
-import saulo.brustolin.api.entities.Status;
+import saulo.brustolin.shared.entities.Status;
 
 public record UpdateProductDTO(
     @Size(min = 8, message = "O nome precisa ter no mínimo 8 caracteres") String name,

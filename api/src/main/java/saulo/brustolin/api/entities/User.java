@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.github.f4b6a3.ulid.UlidCreator;
 import com.mongodb.lang.NonNull;
 
 import lombok.Data;
@@ -24,12 +25,16 @@ import lombok.RequiredArgsConstructor;
 public class User implements UserDetails {
     
     @Id
-    private String id;
+    private String id = "user_" + UlidCreator.getMonotonicUlid().toString().toLowerCase();;
+
     @NonNull private String name;
     @NonNull private String email;
     @NonNull private String cpf;
     @NonNull private String password;
+
     @NonNull private Set<Address> address;
+    @NonNull private String defaultAddress;
+
     private UserRole role = UserRole.CONSUMER;
     private Set<String> favorites;
 
@@ -77,5 +82,13 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return this.isActive;
+    }
+
+    public void addingFavorite(String productId) {
+        favorites.add(productId);
+    }
+
+    public void removeFavorite(String productId) {
+        favorites.remove(productId);
     }
 }

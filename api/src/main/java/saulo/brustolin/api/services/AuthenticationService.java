@@ -11,10 +11,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import saulo.brustolin.api.dtos.auth.AuthenticationDTO;
 import saulo.brustolin.api.dtos.auth.RegisterDTO;
-import saulo.brustolin.api.exceptions.ErrorException;
-import saulo.brustolin.api.exceptions.ValidationException;
 import saulo.brustolin.api.repositories.UserRepository;
 import saulo.brustolin.api.utils.CookieUtil;
+import saulo.brustolin.api.exceptions.ErrorException;
+import saulo.brustolin.api.exceptions.ValidationException;
 import saulo.brustolin.api.entities.User;
 
 @Service
@@ -51,7 +51,7 @@ public class AuthenticationService {
             throw new ErrorException(HttpStatus.BAD_REQUEST, "As senhas não são iguais");
         }
 
-        var user = new User(dto.name(), dto.email(), dto.cpf(), passwordEncoder.encode(dto.password()), new HashSet<>());
+        var user = new User(dto.name(), dto.email(), dto.cpf(), passwordEncoder.encode(dto.password()), new HashSet<>(), null);
         userRepository.save(user);
 
         String token = tokenService.generateToken(user.getEmail());

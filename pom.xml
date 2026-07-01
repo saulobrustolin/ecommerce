@@ -18,7 +18,8 @@
     <modules>
         <module>api</module>
         <module>shared</module>
-        <module>notification-email</module>
+        <module>email-consumer</module>
+        <module>background-consumer</module>
         <module>resource-server</module>
     </modules>
 

@@ -16,10 +16,10 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
-import saulo.brustolin.api.exceptions.ErrorException;
 import saulo.brustolin.api.repositories.UserRepository;
 import saulo.brustolin.api.services.TokenService;
 import saulo.brustolin.api.utils.CookieUtil;
+import saulo.brustolin.api.exceptions.ErrorException;
 
 @Component
 @AllArgsConstructor

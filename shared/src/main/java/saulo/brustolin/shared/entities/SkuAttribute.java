@@ -1,4 +1,4 @@
-package saulo.brustolin.api.entities;
+package saulo.brustolin.shared.entities;
 
 public record SkuAttribute(
     String color,

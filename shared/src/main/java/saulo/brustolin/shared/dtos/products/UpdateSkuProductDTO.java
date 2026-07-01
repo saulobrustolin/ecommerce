@@ -1,7 +1,7 @@
-package saulo.brustolin.api.dtos.products;
+package saulo.brustolin.shared.dtos.products;
 
 import jakarta.validation.constraints.PositiveOrZero;
-import saulo.brustolin.api.entities.SkuAttribute;
+import saulo.brustolin.shared.entities.SkuAttribute;
 
 public record UpdateSkuProductDTO(
     @PositiveOrZero(message = "O preço precisa ser maior ou igual a zero") Integer price,

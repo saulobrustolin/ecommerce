@@ -7,7 +7,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.ReportingPolicy;
 
 import saulo.brustolin.api.dtos.reviews.UpdateReviewDTO;
-import saulo.brustolin.api.entities.Review;
+import saulo.brustolin.shared.entities.Review;
 
 @Mapper(componentModel = "spring")
 public interface ReviewMapper {

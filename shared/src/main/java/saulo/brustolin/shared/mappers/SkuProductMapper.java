@@ -1,4 +1,4 @@
-package saulo.brustolin.api.mappers;
+package saulo.brustolin.shared.mappers;
 
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
@@ -6,12 +6,12 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.mapstruct.ReportingPolicy;
 
-import saulo.brustolin.api.dtos.products.UpdateProductDTO;
-import saulo.brustolin.api.entities.Product;
+import saulo.brustolin.shared.dtos.products.UpdateSkuProductDTO;
+import saulo.brustolin.shared.entities.Sku;
 
 @Mapper(componentModel = "spring")
-public interface ProductMapper {
+public interface SkuProductMapper {
     
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE, unmappedTargetPolicy = ReportingPolicy.IGNORE)
-    void updateEntityFromDto(UpdateProductDTO dto, @MappingTarget Product entity);
+    void updateEntityFromDto(UpdateSkuProductDTO dto, @MappingTarget Sku entity);
 }

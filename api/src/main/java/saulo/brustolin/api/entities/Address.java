@@ -1,8 +1,8 @@
 package saulo.brustolin.api.entities;
 
 import java.util.Objects;
-import java.util.UUID;
 
+import com.github.f4b6a3.ulid.UlidCreator;
 import com.mongodb.lang.NonNull;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Address {
     
-    private String id = "ADD_" + UUID.randomUUID().toString();
+    private String id = "ADD_" + UlidCreator.getMonotonicUlid().toString().toLowerCase();;
 
     @NonNull private String street;
     @NonNull private String number;
@@ -23,7 +23,6 @@ public class Address {
     @NonNull private String uf;
     @NonNull private String cep;
     @NonNull private String obs;
-    private Boolean defaultAddress = true;
 
     @Override
     public int hashCode() {

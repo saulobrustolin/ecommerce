@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.github.f4b6a3.ulid.UlidCreator;
 import com.mongodb.lang.NonNull;
 
 import lombok.Data;
@@ -17,7 +18,7 @@ import lombok.Data;
 public class Order {
 
     @Id
-    private String id;
+    private String id = "order_" + UlidCreator.getMonotonicUlid().toString().toLowerCase();;
 
     @NonNull private String order;
     

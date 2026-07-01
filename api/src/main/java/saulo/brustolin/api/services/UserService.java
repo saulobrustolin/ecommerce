@@ -9,12 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.AllArgsConstructor;
 import saulo.brustolin.api.configurations.RabbitMQConfig;
-import saulo.brustolin.api.dtos.users.ResumeUserDTO;
 import saulo.brustolin.api.dtos.users.UpdateUserDTO;
 import saulo.brustolin.shared.dtos.UserEvent;
 import saulo.brustolin.shared.dtos.VerificationCodeEvent;
-import saulo.brustolin.api.entities.User;
 import saulo.brustolin.api.exceptions.ValidationException;
+import saulo.brustolin.api.entities.User;
 import saulo.brustolin.api.mappers.UserMapper;
 import saulo.brustolin.api.repositories.UserRepository;
 import saulo.brustolin.api.utils.CodeGenerator;
@@ -29,15 +28,6 @@ public class UserService {
     private final RabbitTemplate rabbitTemplate;
     private final VerificationCodeService verificationCodeService;
     private final PasswordEncoder passwordEncoder;
-
-    public ResumeUserDTO getResume(User user, Integer month, Integer year) {
-        return new ResumeUserDTO(
-            1,
-            1,
-            1,
-            1
-        );
-    }
 
     @Transactional
     @CachePut(value = "users", key = "#result.id")
