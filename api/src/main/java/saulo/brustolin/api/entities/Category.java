@@ -1,6 +1,7 @@
 package saulo.brustolin.api.entities;
 
 import java.time.Instant;
+import java.util.Set;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -21,6 +22,8 @@ public class Category {
     private String id;
 
     @NonNull private String name;
+    @NonNull private Set<ProductFragmentCollection> products;
+    
     private Boolean isActive = true;
 
     @CreatedDate

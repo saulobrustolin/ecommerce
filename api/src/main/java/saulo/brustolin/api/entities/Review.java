@@ -30,6 +30,8 @@ public class Review {
 
     @NonNull private String orderId;
 
+    private Boolean isActive = true;
+
     @CreatedDate
     private Instant createdAt;
 
